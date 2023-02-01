@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <meta name="copyright" content="MACode ID, https://macodeid.com/">
+
+  <title>Is it a train?</title>
+
+  <!-- https://www.free-css.com/free-css-templates/page271/seogram -->
+
+  <link rel="stylesheet" type= "text/css" href="{{ url_for('static',filename='css/maicons.css') }}">
+
+  <link rel="stylesheet" type= "text/css" href="{{ url_for('static',filename='css/bootstrap.css') }}">
+
+  <link rel="stylesheet" type= "text/css" href="{{ url_for('static',filename='vendor/animate/animate.css') }}">
+
+  <link rel="stylesheet" type= "text/css" href="{{ url_for('static',filename='css/theme.css') }}">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />        
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+</head>
+<body>
+
+  <!-- Back to top button -->
+  <div class="back-to-top"></div>
+
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky" data-offset="500">
+      <div class="container">
+        <img height="40" src="{{ url_for('static',filename='img/knorr-bremse.png') }}" />
+
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="navbar-collapse collapse w-100" id="navbarContent">
+          <ul class="navbar-nav ml-auto float-right">
+            <li class="nav-item active">
+              <a class="btn btn-primary ml-lg-2" href="https://knorr-bremse-digital.com/gallery" target="_blank">More cool projects</a>
+            </li>
+          </ul>
+        </div>
+        
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="page-banner home-banner">
+        <div class="row align-items-center flex-wrap-reverse h-100">
+          <div align="center" class="py-5 wow fadeInLeft" style="height: 20%">
+            <h1 class="mb-4" align="center">Choose file for coating analysis</h1>
+            <br><br>
+            <p align="center">
+
+            <label for="avatar" >Upload a picture:</label>
+            <form method="post" action="/" enctype="multipart/form-data" align="center">
+                <dl>
+                    <p align="center">
+                        <input type="file" align="center" name="file" class="nav-link btn btn-primary ml-lg-2 " style="color:white;" autocomplete="off" required>
+                    </p>
+                </dl>
+                <p>
+                    <input type="submit" class="nav-link btn btn-primary ml-lg-2 " style="color:white;" value="Check Image">
+                </p>
+            </form>
+            </p>
+
+
+            <div align="center" class="container">
+            
+                    {% if filename %}
+                        <div align="center">
+                            <img src="{{ url_for('views.display_image', filename=filename) }}" width="60%" height=auto>
+                        </div>
+                    {% endif %}
+            
+                    <br>
+            
+
+                    <h1 class="mb-4" align="center">
+
+                    <p align="center">
+                      {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+            
+                          {% for message in messages %}
+                              {{ message }}
+                          {% endfor %}
+            
+                        {% endif %}
+                      {% endwith %}
+                  </p>
+                </h1>
+    
+            
+              </div>
+
+
+            <br /><br /><br />
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <footer class="page-footer bg-image">
+    <div class="container">
+      <p class="text-center">Made with ❤️ in beautiful <a href="https://www.youtube.com/watch?v=r2dXQrLwM1Q" data-original-text="Europe 🥨🥘"> Europe 🥨🥘</a> by Knorr-Bremse Services - your favorite IT organization in the world.</p>
+    
+      <p class="text-center" id="copyright">Copyright &copy; 2020. This template design and develop by <a href="https://macodeid.com/" target="_blank">MACode ID</a></p>
+    </div>
+  </footer>
+
+  
+  
+</body>
+</html>
